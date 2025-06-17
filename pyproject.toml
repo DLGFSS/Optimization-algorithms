@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "nsga2-project"
+version = "0.1.0"
+description = "Algoritmos de optimizacion"
+authors = ["Diego Santos <161679213+DLGFSS@users.noreply.github.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+activex = { path = "../../axo", develop = true }
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.1"
+more-itertools = "^10.2.0"
+pandas = "1.4.3"
+seaborn = "^0.13.2"
+rory = "0.0.143"
+galois = "0.3.8"
+scipy = "1.8"
+
+[[tool.poetry.source]]
+name = "test"
+url = "https://test.pypi.org/simple/"
+priority = "supplemental"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,146 @@
+{
+    "timestamp": "2025-06-16 20:00:40,046",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "PUT.METADATA",
+    "bucket_id": "5nm4ng1wsy7oy5n2fpygi81q284btkft",
+    "key": "595ybpod3zybw8m1_class_def",
+    "replicas": [],
+    "service_time": 0.015615463256835938,
+    "reponse_time": 7.32673978805542
+}
+
+{
+    "timestamp": "2025-06-16 20:01:16,359",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "PUT.METADATA",
+    "bucket_id": "5nm4ng1wsy7oy5n2fpygi81q284btkft",
+    "key": "595ybpod3zybw8m1_class_def",
+    "replicas": [],
+    "service_time": 0.003165006637573242,
+    "reponse_time": 0.02070021629333496
+}
+
+{
+    "timestamp": "2025-06-16 20:26:59,509",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "PUT.METADATA",
+    "bucket_id": "luudxhnc0d8jpd3o2vaosoa1alydd7ng",
+    "key": "pdp0aey9tblmq5ye_class_def",
+    "replicas": [],
+    "service_time": 0.006692409515380859,
+    "reponse_time": 39.15129065513611
+}
+
+{
+    "timestamp": "2025-06-16 20:31:59,962",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "PUT.METADATA",
+    "bucket_id": "oznl15kerup3i9yhlck3334qazmewawi",
+    "key": "b03ghhmze1zcmern_class_def",
+    "replicas": [],
+    "service_time": 0.002452373504638672,
+    "reponse_time": 7.827812194824219
+}
+
+{
+    "timestamp": "2025-06-16 20:53:18,207",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "PUT.METADATA",
+    "bucket_id": "9d80ica8kyq47nqe8d6f3z1l443gukq8",
+    "key": "t9v1d2jshq3mo5wr_class_def",
+    "replicas": [
+        "mictlanx-peer-0"
+    ],
+    "service_time": 0.007869958877563477,
+    "reponse_time": 0.020726919174194336
+}
+
+{
+    "timestamp": "2025-06-16 20:53:18,285",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "PUT.CHUNKED",
+    "bucket_id": "9d80ica8kyq47nqe8d6f3z1l443gukq8",
+    "key": "t9v1d2jshq3mo5wr_class_def",
+    "checksum": "d7c6f715f8df1de345f93855720e25518c0e193cf5717affc91fcc3984fda168",
+    "size": 65,
+    "metadata_service_time": 0.007869958877563477,
+    "metadata_response_time": 0.020726919174194336,
+    "replicas": [
+        "mictlanx-peer-0"
+    ],
+    "response_time": 0.0991506576538086
+}
+
+{
+    "timestamp": "2025-06-16 20:53:18,305",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "PUT.METADATA",
+    "bucket_id": "9d80ica8kyq47nqe8d6f3z1l443gukq8",
+    "key": "t9v1d2jshq3mo5wr",
+    "replicas": [
+        "mictlanx-peer-0"
+    ],
+    "service_time": 0.0055103302001953125,
+    "reponse_time": 0.011887311935424805
+}
+
+{
+    "timestamp": "2025-06-16 20:53:18,339",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "PUT.CHUNKED",
+    "bucket_id": "9d80ica8kyq47nqe8d6f3z1l443gukq8",
+    "key": "t9v1d2jshq3mo5wr",
+    "checksum": "901de573848997c7fbf20290475dc8b3163935a5f9bce27968d4a89f68936c1b",
+    "size": 4687,
+    "metadata_service_time": 0.0055103302001953125,
+    "metadata_response_time": 0.011887311935424805,
+    "replicas": [
+        "mictlanx-peer-0"
+    ],
+    "response_time": 0.04567265510559082
+}
+
+{
+    "timestamp": "2025-06-16 20:56:51,927",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "GET",
+    "bucket_id": "9d80ica8kyq47nqe8d6f3z1l443gukq8",
+    "key": "t9v1d2jshq3mo5wr",
+    "size": 4687,
+    "response_time": 0.047162771224975586,
+    "metadata_service_time": 0.0269773006439209,
+    "peer_id": "mictlanx-peer-0"
+}
+
+{
+    "timestamp": "2025-06-16 20:57:49,844",
+    "level": "INFO",
+    "logger_name": "activex-mictlanx",
+    "thread_name": "MainThread",
+    "event": "GET",
+    "bucket_id": "9d80ica8kyq47nqe8d6f3z1l443gukq8",
+    "key": "t9v1d2jshq3mo5wr",
+    "size": 4687,
+    "response_time": 0.030711650848388672,
+    "metadata_service_time": 0.012377738952636719,
+    "peer_id": "mictlanx-peer-0"
+}
+
