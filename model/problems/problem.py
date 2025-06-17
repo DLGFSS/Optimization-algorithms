@@ -34,3 +34,14 @@ class Problems:
             r = (1.0 + g) * 0.5 * (1 - Y[:, 0])
 
         return r
+    
+    
+    def evaluate_zdt1(x):
+        f1 = x[0]
+        g = 1 + 9 * sum(x[1:]) / (len(x) - 1)
+        f2 = g * (1 - (f1 / g) ** 0.5)
+        return [f1, f2]
+    
+    
+    
+    
