@@ -28,8 +28,7 @@ if __name__ == "__main__":
         "params_mop": {"name": "dtlz1"},
         "params_crossover": {"name": "sbx", "prob": 1.0, "eta": 20},
         "params_mutation": {"name": "polymutation", "prob": 1./6, "eta": 15},
-        "verbose": True,
-    }
+        "verbose": True,}
 
     all_objectives = []
     tiempos_por_run = []
@@ -68,7 +67,7 @@ if __name__ == "__main__":
 
     plt.xlabel('Objetivo 1')
     plt.ylabel('Objetivo 2')
-    plt.title('NSGA-II - Frentes de Pareto')
+    plt.title('NSGA-II ')
     plt.legend()
     plt.grid(True)
     plt.savefig(os.path.join(output_path, "fronts.png"), dpi=300)
