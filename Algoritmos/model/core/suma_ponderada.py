@@ -9,10 +9,10 @@ class SumaPonderada:
     
     def __init__(self):
         pass
-#     # Función objetivo 1
+    # Función objetivo 1
     def f1(self, x):
         return x[0]**2 + x[1]**2
-#     # Función objetivo 2
+    # Función objetivo 2
     def f2(self, x):
         return (x[0] - 1)**2 + (x[1] - 2)**2
     # Función objetivo combinada con pesos

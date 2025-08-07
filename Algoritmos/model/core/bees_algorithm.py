@@ -8,12 +8,12 @@ class BeesAlgorithm:
         self.f = objective_function
         self.lower = lower_bound
         self.upper = upper_bound
-        self.n = params["n"]       # Exploradoras
-        self.m = params["m"]       # Sitios seleccionados
-        self.e = params["e"]       # Sitios élite
-        self.nep = params["nep"]   # Reclutas en élite
-        self.nsp = params["nsp"]   # Reclutas en otros sitios
-        self.ngh = params["ngh"]   # Radio del vecindario
+        self.n = params["n"]      
+        self.m = params["m"]       
+        self.e = params["e"]       
+        self.nep = params["nep"]   
+        self.nsp = params["nsp"]   
+        self.ngh = params["ngh"]   
         self.max_iter = params["max_iter"]
 
     def _random_solution(self):
@@ -73,10 +73,9 @@ class BeesAlgorithm:
             history_sites.append(selected_sites)
             history_scouts.append(scouts)
 
-            # Guardar imagen por iteración
             self._plot_iteration(it, elite_sites, selected_sites, scouts)
 
-        # Gráfica de convergencia
+        
         self._plot_convergence(history_fx)
 
         return best_solution
@@ -110,11 +109,11 @@ class BeesAlgorithm:
         plt.savefig("img/bees_convergencia.png")
         plt.show()
 
-# --- USO ---
 
 if __name__ == "__main__":
     def objective(x):
         return x ** 2
+
 
     params = {
         "n": 30,

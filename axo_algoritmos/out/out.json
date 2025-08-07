@@ -1,0 +1,64 @@
+[
+    {
+        "timestamp": "2025-08-06 22:35:58,863",
+        "level": "INFO",
+        "logger_name": "activex-mictlanx",
+        "thread_name": "MainThread",
+        "event": "PUT.METADATA",
+        "bucket_id": "fv0ts3ks8mlyrv1l4dtem8534ra9tk9f",
+        "key": "0l5hszyqz1irhf98_class_def",
+        "replicas": [
+            "mictlanx-peer-0"
+        ],
+        "service_time": 0.016204357147216797,
+        "reponse_time": 0.032248497009277344
+    },
+    {
+        "timestamp": "2025-08-06 22:35:58,932",
+        "level": "INFO",
+        "logger_name": "activex-mictlanx",
+        "thread_name": "MainThread",
+        "event": "PUT.CHUNKED",
+        "bucket_id": "fv0ts3ks8mlyrv1l4dtem8534ra9tk9f",
+        "key": "0l5hszyqz1irhf98_class_def",
+        "checksum": "d7c6f715f8df1de345f93855720e25518c0e193cf5717affc91fcc3984fda168",
+        "size": 65,
+        "metadata_service_time": 0.016204357147216797,
+        "metadata_response_time": 0.032248497009277344,
+        "replicas": [
+            "mictlanx-peer-0"
+        ],
+        "response_time": 0.10160446166992188
+    },
+    {
+        "timestamp": "2025-08-06 22:35:58,961",
+        "level": "INFO",
+        "logger_name": "activex-mictlanx",
+        "thread_name": "MainThread",
+        "event": "PUT.METADATA",
+        "bucket_id": "fv0ts3ks8mlyrv1l4dtem8534ra9tk9f",
+        "key": "0l5hszyqz1irhf98",
+        "replicas": [
+            "mictlanx-peer-0"
+        ],
+        "service_time": 0.005817890167236328,
+        "reponse_time": 0.0109405517578125
+    },
+    {
+        "timestamp": "2025-08-06 22:35:58,998",
+        "level": "INFO",
+        "logger_name": "activex-mictlanx",
+        "thread_name": "MainThread",
+        "event": "PUT.CHUNKED",
+        "bucket_id": "fv0ts3ks8mlyrv1l4dtem8534ra9tk9f",
+        "key": "0l5hszyqz1irhf98",
+        "checksum": "ab161b8c30c89320e8cf430b55dca214f9d584cd70f2c5ba302fe06c8999fbd7",
+        "size": 11394,
+        "metadata_service_time": 0.005817890167236328,
+        "metadata_response_time": 0.0109405517578125,
+        "replicas": [
+            "mictlanx-peer-0"
+        ],
+        "response_time": 0.047988176345825195
+    }
+]

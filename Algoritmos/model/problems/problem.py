@@ -35,7 +35,7 @@ class Problems:
 
         return r
     
-    
+    @staticmethod
     def evaluate_zdt1(x):
         f1 = x[0]
         g = 1 + 9 * sum(x[1:]) / (len(x) - 1)

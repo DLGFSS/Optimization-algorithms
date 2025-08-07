@@ -24,7 +24,6 @@ def test_eval_dtlz1_shape():
 
     objs = eval_dtlz_fn_matrix(fn_id, chroms, m_objs)
 
-    # Verifica que la salida tenga la forma correcta
     assert objs.shape == (pop_size, m_objs)
-    # Opcional: asegúrate de que todos los valores estén dentro de un rango razonable
+    
     assert np.all(objs >= 0)
