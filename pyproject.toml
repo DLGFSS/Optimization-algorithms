@@ -1,15 +1,15 @@
 [tool.poetry]
-name = "nsga2-project"
+name = "optikit"
 version = "0.1.0"
 description = "Algoritmos de optimizacion"
 authors = ["Diego Santos <161679213+DLGFSS@users.noreply.github.com>"]
 readme = "README.md"
-package-mode = false
+package-mode = true
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.11"
-activex = { path = "../../../axo", develop = true }
 networkx = "2.8.8"
+axo = "0.0.1a6"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.1"
@@ -19,6 +19,8 @@ seaborn = "^0.13.2"
 rory = "0.0.143"
 galois = "0.3.8"
 scipy = "1.8"
+pytest-asyncio = "^1.1.0"
+coverage = "^7.10.2"
 
 [[tool.poetry.source]]
 name = "test"

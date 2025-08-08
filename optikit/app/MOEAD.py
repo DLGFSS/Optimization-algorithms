@@ -3,10 +3,8 @@ import sys
 import time
 import csv
 import matplotlib.pyplot as plt
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from model.core.moead import MOEAD
-from model.problems.problem import Problems
+from optikit.algorithms.moead import MOEAD
+from optikit.problems.problem import Problems
 
 #objeto de problema
 problem = Problems()

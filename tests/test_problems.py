@@ -1,9 +1,6 @@
 import numpy as np
-import os
-import sys
 import pytest
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from model.problems.problem import Problems
+from optikit.problems.problem import Problems
 
 def eval_dtlz_fn_matrix(fn_id, chroms, m_objs):
     objs = np.zeros((chroms.shape[0], m_objs))
@@ -12,7 +9,7 @@ def eval_dtlz_fn_matrix(fn_id, chroms, m_objs):
             objs[:, m] = Problems.dtlz1(chroms, m, m_objs)
     return objs.copy()
 
-def test_eval_dtlz1_shape():
+def test_eval_dtlz1_shape( ):
     fn_id = 1
     m_objs = 3
     pop_size = 100

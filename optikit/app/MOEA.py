@@ -5,8 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import csv
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from model.core.nsga2 import NSGA2
+from optikit.algorithms.nsga2 import NSGA2
 
 def get_experiment_path(script_path, name="sample"):
     output_dir = os.path.join(script_path, name)  
