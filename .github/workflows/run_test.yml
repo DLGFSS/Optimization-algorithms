@@ -25,7 +25,7 @@ jobs:
         with:  
           python-version: ${{ matrix.python-version }}  
       - name: Allow writing to /log
-          run: |
+        run: |
             sudo mkdir -p /log
             sudo chown $USER:$USER /log
             sudo chmod 777 /log
