@@ -2,9 +2,11 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+from axo import Axo, axo_method
 
-class BeesAlgorithm:
-    def __init__(self, objective_function, lower_bound, upper_bound, params):
+class BeesAlgorithm(Axo):
+    def __init__(self, objective_function, lower_bound, upper_bound, params, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.f = objective_function
         self.lower = lower_bound
         self.upper = upper_bound
@@ -16,15 +18,15 @@ class BeesAlgorithm:
         self.ngh = params["ngh"]   
         self.max_iter = params["max_iter"]
 
-    def _random_solution(self):
+    def _random_solution(self, **kwargs):
         return random.uniform(self.lower, self.upper)
 
-    def _neighborhood(self, x):
+    def _neighborhood(self, x, **kwargs):
         delta = random.uniform(-self.ngh, self.ngh)
         neighbor = x + delta
         return max(self.lower, min(neighbor, self.upper))
-
-    def search(self):
+    @axo_method
+    def search(self, **kwargs):
         os.makedirs("img", exist_ok=True)
 
         population = [self._random_solution() for _ in range(self.n)]
@@ -80,7 +82,7 @@ class BeesAlgorithm:
 
         return best_solution
 
-    def _plot_iteration(self, iter_num, elites, sites, scouts):
+    def _plot_iteration(self, iter_num, elites, sites, scouts, **kwargs):
         x_curve = np.linspace(self.lower, self.upper, 400)
         y_curve = x_curve ** 2
 
