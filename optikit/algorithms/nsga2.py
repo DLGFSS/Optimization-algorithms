@@ -1,9 +1,11 @@
 import numpy as np
 from ..problems.problem import Problems
+from axo import Axo, axo_method
 
 
-class NSGA2:
-    def __init__(self, params):
+class NSGA2(Axo):
+    def __init__(self, params, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.name = params["name"]
         self.label = params["label"]
         self.runs = params["runs"]
@@ -17,12 +19,12 @@ class NSGA2:
         
     #se crea la poblacion aleatoriamente con las variables de decision 
     
-    def create_initial_population(self):
+    def create_initial_population(self, **kwargs):
         return np.random.rand(self.pop_size, 10)  
     
     #se evalua la poblacion con la funcion de evaluacion del problema, se utiliza la funcion dtlz1 para evaluar la poblacion
     #
-    def evaluate(self, population):
+    def evaluate(self, population, **kwargs ):
         X = np.array(population)
         objectives = np.array([Problems.dtlz1(X, m, self.m_objs) for m in range(self.m_objs)]).T
         return objectives
@@ -30,7 +32,7 @@ class NSGA2:
     #se seleccionan los padres para la reproduccion, se eligen dos padres aleatoriamente y se comparan sus objetivos
     # si el padre i es mejor que el padre j se selecciona el padre i, de lo contrario se selecciona el padre j
     #se repite el proceso hasta completar la poblacion de padres
-    def select_parents(self, population, objectives):
+    def select_parents(self, objectives , **kwargs):
         mating_pool = []
         for _ in range(self.pop_size):
             i, j = np.random.choice(self.pop_size, size=2, replace=False)
@@ -42,7 +44,7 @@ class NSGA2:
     
     #se genera una nueva poblacion a partir de la poblacion actual y los padres seleccionados, se aplica el operador de cruce y mutacion
     #se generan dos hijos a partir de los padres seleccionados, se aplica el operador de crossover y mutation a cada hijo  
-    def generate_new_population(self, population, mating_pool, objectives):
+    def generate_new_population(self, population, mating_pool):
         new_population = np.copy(population)
         
         for i in range(0, self.pop_size, 2):
@@ -89,7 +91,8 @@ class NSGA2:
 
 
     #ejecucin del algortimo 
-    def run(self):
+    @axo_method
+    def run(self , **kwargs):
         population = self.create_initial_population()
         objectives = self.evaluate(population)
         
@@ -97,8 +100,8 @@ class NSGA2:
             if self.verbose:
                 print(f"Generacion {gen+1} completada")
             
-            mating_pool = self.select_parents(population, objectives)
-            population = self.generate_new_population(population, mating_pool, objectives)
+            mating_pool = self.select_parents(objectives)
+            population = self.generate_new_population(population, mating_pool)
             objectives = self.evaluate(population)
         
         return population, objectives
