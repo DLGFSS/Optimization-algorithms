@@ -7,6 +7,7 @@ class Problems:
         r = 100 * (k+(((Z - 0.5)**2) - np.cos(20*np.pi*(Z-0.5))).sum(axis=by_row))
         return r
     
+    @staticmethod
     def dtlz1(X, m, M):
     
         r = None
