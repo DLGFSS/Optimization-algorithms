@@ -1,15 +1,17 @@
 import matplotlib.pyplot as plt
 import os
+from axo import Axo, axo_method
 
-class TabuSearch1D:
-    def __init__(self, obj_function, neighborhood_fn, initial_solution, max_iter=50, tabu_size=5):
+class TabuSearch1D(Axo):
+    def __init__(self, obj_function, neighborhood_fn, initial_solution, max_iter=50, tabu_size=5, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.f = obj_function
         self.neighbors = neighborhood_fn
         self.x0 = initial_solution
         self.max_iter = max_iter
         self.tabu_size = tabu_size
-
-    def run(self):
+    @axo_method
+    def run(self, *args, **kwargs):
         current = self.x0
         best = current
         tabu = []
@@ -31,7 +33,7 @@ class TabuSearch1D:
         self.plot_convergence(history)
         return best, self.f(best)
 
-    def plot_convergence(self, history):
+    def plot_convergence(self, history, *args, **kwargs):
         os.makedirs("img", exist_ok=True)
         plt.figure(figsize=(8, 4))
         plt.plot(history, marker='o', color='darkorange')
