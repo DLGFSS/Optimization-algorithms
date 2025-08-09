@@ -3,9 +3,11 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 import os
+from axo import Axo, axo_method
 
-class CuckooSearch:
-    def __init__(self, objective, lower, upper, params):
+class CuckooSearch(Axo):
+    def __init__(self, objective, lower, upper, params, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.f = objective
         self.lower = lower
         self.upper = upper
@@ -14,7 +16,7 @@ class CuckooSearch:
         self.max_iter = params["max_iter"]
         self.alpha = params.get("alpha", 1.0)  # Escala del vuelo Lévy
 
-    def levy_flight(self):
+    def levy_flight(self,**kwargs):
         beta = 1.5
         sigma = (math.gamma(1 + beta) * math.sin(math.pi * beta / 2) /
                 (math.gamma((1 + beta) / 2) * beta * 2 ** ((beta - 1) / 2))) ** (1 / beta)
@@ -23,10 +25,11 @@ class CuckooSearch:
         step = u / abs(v) ** (1 / beta)
         return self.alpha * step
 
-    def simple_bounds(self, x):
+    def simple_bounds(self, x ,**kwargs):
         return max(self.lower, min(x, self.upper))
-
-    def search(self):
+    
+    @axo_method
+    def search(self, **kwargs):
         os.makedirs("img", exist_ok=True)
 
         nests = [random.uniform(self.lower, self.upper) for _ in range(self.n)]
@@ -60,7 +63,7 @@ class CuckooSearch:
         self.plot_convergence(fx_history)
         return best
 
-    def plot_convergence(self, fx_history):
+    def plot_convergence(self,fx_history, **kwargs):
         plt.figure(figsize=(8, 4))
         plt.plot(fx_history, marker='o', color='navy')
         plt.title("Convergencia de Cuckoo Search")
@@ -71,18 +74,18 @@ class CuckooSearch:
         plt.savefig("img/cuckoo_convergencia.png")
         plt.show()
 
-if __name__ == "__main__":
-    def objective_function(x):
-        return x ** 2
+#if __name__ == "__main__":
+#    def objective_function(x):
+#        return x ** 2
 
-    params = {
-        "n": 20,
-        "pa": 0.25,
-        "max_iter": 100,
-        "alpha": 1.0
-    }
+#    params = {
+#        "n": 20,
+#        "pa": 0.25,
+#        "max_iter": 100,
+#        "alpha": 1.0
+#    }
 
-    cs = CuckooSearch(objective_function, lower=-10, upper=10, params=params)
-    best_solution = cs.search()
-    print("Mejor solución encontrada:", best_solution)
-    print("Valor objetivo:", objective_function(best_solution))
+#    cs = CuckooSearch(objective_function, lower=-10, upper=10, params=params)
+#    best_solution = cs.search()
+#    print("Mejor solución encontrada:", best_solution)
+#    print("Valor objetivo:", objective_function(best_solution))
