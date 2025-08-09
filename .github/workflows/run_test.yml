@@ -31,7 +31,7 @@ jobs:
             sudo chmod 777 /log
 
       - name: Test writing
-          run: echo "hello world" > /log/test.txt
+        run: echo "hello world" > /log/test.txt
 
       - name: Install Poetry
         run: |
