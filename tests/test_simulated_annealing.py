@@ -16,7 +16,7 @@ def dem():
         pubsub_port  = 16666
     )
     return dem
-
+ 
 @pytest.mark.skip("")
 @pytest.mark.asyncio
 async def test_simulated_annealing(dem:DistributedEndpointManager):
