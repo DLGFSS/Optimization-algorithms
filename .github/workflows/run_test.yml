@@ -18,11 +18,21 @@ jobs:
       matrix:  
         python-version: ["3.9"]  
     steps:  
+
       - uses: actions/checkout@v3  
       - name: Set up Python ${{ matrix.python-version }}  
         uses: actions/setup-python@v4  
         with:  
           python-version: ${{ matrix.python-version }}  
+      - name: Allow writing to /log
+          run: |
+            sudo mkdir -p /log
+            sudo chown $USER:$USER /log
+            sudo chmod 777 /log
+
+      - name: Test writing
+          run: echo "hello world" > /log/test.txt
+
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
