@@ -32,6 +32,9 @@ jobs:
             sudo mkdir -p /mictlanx
             sudo chown $USER:$USER /mictlanx
             sudo chmod 777 /mictlanx
+            sudo mkdir -p /sink
+            sudo chown $USER:$USER /sink
+            sudo chmod 777 /sink
 
       - name: Test writing
         run: echo "hello world" > /log/test.txt
