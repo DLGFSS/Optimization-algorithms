@@ -9,7 +9,7 @@ package-mode = true
 [tool.poetry.dependencies]
 python = ">=3.9,<4"
 networkx = "2.8.8"
-axo = "0.0.1a6"
+axo = "0.0.1a7"
 scipy = "1.13"
 
 [tool.poetry.group.dev.dependencies]

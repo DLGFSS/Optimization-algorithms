@@ -35,6 +35,24 @@ jobs:
             sudo mkdir -p /sink
             sudo chown $USER:$USER /sink
             sudo chmod 777 /sink
+            
+      - name: Create network axo-net (external)
+        run: |
+          docker network ls --format '{{.Name}}' | grep -qx 'axo-net' || docker network create axo-net
+      - name: Compose up
+        run: |
+          docker compose -f axo-endpoint.yml up -d
+          docker compose -f storage.yml up -d
+          docker ps -a
+      - name: Wait for endpoint
+        shell: bash
+        run: |
+          for i in {1..60}; do
+            if (echo > /dev/tcp/127.0.0.1/16666) 2>/dev/null || (echo > /dev/tcp/127.0.0.1/16667) 2>/dev/null; then
+              echo "Endpoint is up"; break
+            fi
+            echo "waiting... ($i)"; sleep 2
+          done
 
       - name: Test writing
         run: echo "hello world" > /log/test.txt
