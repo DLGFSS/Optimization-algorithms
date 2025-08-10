@@ -29,6 +29,9 @@ jobs:
             sudo mkdir -p /log
             sudo chown $USER:$USER /log
             sudo chmod 777 /log
+            sudo mkdir -p /mictlanx
+            sudo chown $USER:$USER /mictlanx
+            sudo chmod 777 /mictlanx
 
       - name: Test writing
         run: echo "hello world" > /log/test.txt
@@ -50,7 +53,7 @@ jobs:
       - name: Lint with Ruff  
         run: |  
           pip install ruff  
-          ruff --format=github --target-version=py311 .  
+          ruff --target-version=py39 .  
         continue-on-error: true  
         
       - name: Test with pytest  
