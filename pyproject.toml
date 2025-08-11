@@ -9,8 +9,8 @@ package-mode = true
 [tool.poetry.dependencies]
 python = ">=3.9,<4"
 networkx = "2.8.8"
-axo = "0.0.1a7"
 scipy = "1.13"
+axo = {url = "https://test-files.pythonhosted.org/packages/ee/fd/57da1d512937065a1dd6075f177c4775bf3672a60f9b3725c1bab2a48a2f/axo-0.0.1a8.tar.gz"}
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.1"
