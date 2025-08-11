@@ -1,10 +1,10 @@
-name: Run Unit Test via Pytest  
+name: UNIT_TEST
   
 on:
   push: 
-    branches: ["*"]
+    branches: ["master"]
   pull_request:
-    branches: ["*"]
+    branches: ["master"]
     paths:
       - "src/**"
       - "test/**"
