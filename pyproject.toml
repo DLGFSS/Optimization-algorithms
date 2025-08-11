@@ -7,18 +7,15 @@ readme = "README.md"
 package-mode = true
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.11"
+python = ">=3.9,<4"
 networkx = "2.8.8"
-axo = "0.0.1a6"
+scipy = "1.13"
+axo="0.0.1a8"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.1"
 more-itertools = "^10.2.0"
-pandas = "1.4.3"
 seaborn = "^0.13.2"
-rory = "0.0.143"
-galois = "0.3.8"
-scipy = "1.8"
 pytest-asyncio = "^1.1.0"
 coverage = "^7.10.2"
 

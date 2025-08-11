@@ -1,17 +1,20 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import os
+from axo import Axo, axo_method
 
-class DijkstraAlgorithm:
-    def __init__(self, graph):
+class DijkstraAlgorithm(Axo):
+    def __init__(self, graph,*args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.graph = graph
 
-    def run(self, source, target):
+    @axo_method
+    def run(self, source, target, **kwargs):
         # Devuelve el camino y el costo total desde source hasta target
         path, cost = nx.single_source_dijkstra(self.graph, source=source, target=target)
         return path, cost  # orden correcto: primero la lista del camino, luego el costo
 
-    def draw_path(self, path, algorithm_name="Dijkstra"):
+    def draw_path(self, path, algorithm_name="Dijkstra", **kwargs):
         os.makedirs("img", exist_ok=True)
 
         pos = nx.spring_layout(self.graph, seed=42)

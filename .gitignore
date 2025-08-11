@@ -1,7 +1,8 @@
 __pycache__/
 .pytest_cache
 *.pdf
-*.(j|p)ng
+*.png
+*.jpg
 *.tar.gz
 .coverage
 htmlcov/

@@ -1,16 +1,17 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import os
+from axo import Axo,axo_method
 
-class BellmanFordAlgorithm:
-    def __init__(self, graph):
+class BellmanFordAlgorithm(Axo):
+    def __init__(self, graph,*args, **kwargs):
         self.graph = graph
-
-    def run(self, source, target):
+    @axo_method
+    def run(self, source, target,**kwargs):
         self.path, self.cost = nx.single_source_bellman_ford(self.graph, source=source)
         return self.path[target], self.cost[target]
 
-    def draw_path(self, path, algorithm_name="BellmanFord"):
+    def draw_path(self, path, algorithm_name="BellmanFord", **kwargs):
         os.makedirs("img", exist_ok=True)
         pos = nx.spring_layout(self.graph, seed=42)
         plt.figure(figsize=(8, 5))
