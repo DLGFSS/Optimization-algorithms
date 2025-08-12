@@ -26,7 +26,7 @@ class SumaPonderada(Axo):
         return result.x, result.fun
 
     @axo_method
-    def generar_frente_pareto(self, pasos=50, *args, **kwargs):
+    def suma(self, pasos=50, *args, **kwargs):
         solutions = []
         weights_list = []
 

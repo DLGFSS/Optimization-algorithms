@@ -55,7 +55,7 @@ async def test_local_simulated_annealing():
             factor_enfriamiento= 0.95,
             axo_endpoint_id = "axo-endpoint-0"
         )
-        res = sa.enfriamiento()
+        res = sa.simulated()
         print(res)
         assert res.is_ok
         solucion, coste, iteraciones  = res.unwrap()

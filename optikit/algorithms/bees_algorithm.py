@@ -26,7 +26,7 @@ class BeesAlgorithm(Axo):
         neighbor = x + delta
         return max(self.lower, min(neighbor, self.upper))
     @axo_method
-    def search(self, **kwargs):
+    def bees(self, **kwargs):
         os.makedirs("img", exist_ok=True)
 
         population = [self._random_solution() for _ in range(self.n)]

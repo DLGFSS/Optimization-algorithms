@@ -19,7 +19,7 @@ class SimulatedAnnealing(Axo):
         return solucion**2
     
     @axo_method
-    def enfriamiento(self,**kwargs):
+    def simulated(self,**kwargs):
         import random
         import math
         iteracion = 0

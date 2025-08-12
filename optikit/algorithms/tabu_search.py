@@ -11,7 +11,7 @@ class TabuSearch1D(Axo):
         self.max_iter = max_iter
         self.tabu_size = tabu_size
     @axo_method
-    def run(self, *args, **kwargs):
+    def tabu(self, *args, **kwargs):
         current = self.x0
         best = current
         tabu = []

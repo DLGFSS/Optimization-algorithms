@@ -22,7 +22,7 @@ class MOEAD(Axo):
         self.z = [min([ind.f[i] for ind in self.population]) for i in range(2)]
 
     @axo_method
-    def evolve(self,**kwargs):
+    def moea(self,**kwargs):
         for gen in range(self.n_gen):
             for i in range(self.n_sub):
                 P = self.neighbors[i]

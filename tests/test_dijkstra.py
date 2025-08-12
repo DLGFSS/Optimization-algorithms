@@ -22,7 +22,7 @@ async def test_local_Local_search():
     with AxoContextManager.local() as dcm:
         ad:DijkstraAlgorithm = DijkstraAlgorithm(G, axo_endpoint_id="axo-endpoint-0")
         _ = await ad.persistify()
-        res = ad.run('A', 'Z')
+        res = ad.dijkstra('A', 'Z')
         assert res.is_ok
         cost, path = res.unwrap()
         print("Dijkstra:", path, "Coste:", cost)

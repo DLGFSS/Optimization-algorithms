@@ -22,7 +22,7 @@ async def test_local_Local_search():
     with AxoContextManager.local() as dcm:
         ls:LocalSearch = LocalSearch(x=50, axo_endpoint_id="axo-endpoint-0")
         _ = await ls.persistify()
-        res = ls.search()
+        res = ls.local()
         assert res.is_ok
         mejor_solucion = res.unwrap()
         

@@ -29,7 +29,7 @@ async def test_local_moea():
     with AxoContextManager.local() as dcm:
         moead: MOEAD = MOEAD(fn_problem, n_var, bounds, n_gen=200, n_sub=100, T=20)
         _ = await moead.persistify()
-        result = moead.evolve()
+        result = moead.moea()
         assert result.is_ok
         pareto = moead.get_pareto_front()
         f1_vals = [f[0] for f in pareto]
