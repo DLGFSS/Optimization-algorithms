@@ -22,7 +22,7 @@ async def test_local_Local_search():
     with AxoContextManager.local() as dcm:
         bf:BellmanFordAlgorithm = BellmanFordAlgorithm(G, axo_endpoint_id="axo-endpoint-0")
         _ = await bf.persistify()
-        res = bf.run('A', 'Z')
+        res = bf.bellaman('A', 'Z')
         assert res.is_ok
         print(res)
         # cost, path = res.unwrap()

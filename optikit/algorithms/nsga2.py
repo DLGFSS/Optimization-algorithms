@@ -92,7 +92,7 @@ class NSGA2(Axo):
 
     #ejecucin del algortimo 
     @axo_method
-    def run(self , **kwargs):
+    def nsga(self , **kwargs):
         population = self.create_initial_population()
         objectives = self.evaluate(population)
         

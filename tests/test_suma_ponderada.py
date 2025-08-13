@@ -10,7 +10,7 @@ async def test_suma_ponderada():
         
             axo_endpoint_id="axo-endpoint-0")
         _ = await sp.persistify()
-        res = sp.generar_frente_pareto(pasos=50)
+        res = sp.suma(pasos=50)
         print("Frente de Pareto generado con éxito:", res)
         assert res.is_ok
         solutions = res.unwrap()

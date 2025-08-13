@@ -7,7 +7,7 @@ class BellmanFordAlgorithm(Axo):
     def __init__(self, graph,*args, **kwargs):
         self.graph = graph
     @axo_method
-    def run(self, source, target,**kwargs):
+    def bellaman(self, source, target,**kwargs):
         self.path, self.cost = nx.single_source_bellman_ford(self.graph, source=source)
         return self.path[target], self.cost[target]
 

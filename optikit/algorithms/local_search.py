@@ -22,7 +22,7 @@ class LocalSearch(Axo):
     def conditional(self, x, **kwargs):
         return abs(x) == 0  
     @axo_method
-    def search(self, **kwargs):
+    def local(self, **kwargs):
         s = self.x
         self.trayectoria.append(s)
         self.fx.append(self.obj_function(s))

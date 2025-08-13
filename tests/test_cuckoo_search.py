@@ -23,7 +23,7 @@ async def test_local_bess_algorithm():
             axo_endpoint_id="axo-endpoint-0"
         )
         _ = await cs.persistify()
-        res = cs.search()
+        res = cs.cuckoo()
         assert res.is_ok
         best = res.unwrap()
         print("Best solution found:", best)

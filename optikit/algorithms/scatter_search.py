@@ -36,7 +36,7 @@ class ScatterSearch(Axo):
     def combine(self, s1, s2, *args, **kwargs):
         return (s1 + s2) / 2
     @axo_method
-    def search(self, *args, **kwargs):
+    def scatter(self, *args, **kwargs):
         os.makedirs("img", exist_ok=True)
 
         pop = self.initialize_population()

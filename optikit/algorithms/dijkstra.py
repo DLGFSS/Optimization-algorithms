@@ -9,7 +9,7 @@ class DijkstraAlgorithm(Axo):
         self.graph = graph
 
     @axo_method
-    def run(self, source, target, **kwargs):
+    def dijkstra(self, source, target, **kwargs):
         # Devuelve el camino y el costo total desde source hasta target
         path, cost = nx.single_source_dijkstra(self.graph, source=source, target=target)
         return path, cost  # orden correcto: primero la lista del camino, luego el costo

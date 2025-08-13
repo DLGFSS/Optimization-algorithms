@@ -29,7 +29,7 @@ class CuckooSearch(Axo):
         return max(self.lower, min(x, self.upper))
     
     @axo_method
-    def search(self, **kwargs):
+    def cuckoo(self, **kwargs):
         os.makedirs("img", exist_ok=True)
 
         nests = [random.uniform(self.lower, self.upper) for _ in range(self.n)]

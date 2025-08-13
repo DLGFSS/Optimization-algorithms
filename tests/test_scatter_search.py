@@ -21,7 +21,7 @@ async def test_local_bess_algorithm():
             axo_endpoint_id="axo-endpoint-0"
         )
         _ = await sc.persistify()
-        mejor_x = sc.search()
+        mejor_x = sc.scatter()
         assert mejor_x.is_ok
         best = mejor_x.unwrap()
         print("Best solution found:", best)

@@ -20,7 +20,7 @@ async def test_local_nsga2():
     with AxoContextManager.local() as dcm:
         nsga2: NSGA2 = NSGA2(params)
         _ = await nsga2.persistify()
-        result = nsga2.run()
+        result = nsga2.nsga()
         assert result.is_ok
         population , objectives  = result.unwrap()
         print("Final Population:\n", population)

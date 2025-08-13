@@ -19,7 +19,7 @@ async def test_local_Local_search():
             initial_solution=25,
             axo_endpoint_id="axo-endpoint-0")
         _ = await ts.persistify()
-        res = ts.run()
+        res = ts.tabu()
         assert res.is_ok
         best ,a = res.unwrap()
         print("Tabu Search:", best,a)

@@ -24,7 +24,7 @@ async def test_local_bess_algorithm():
             axo_endpoint_id="axo-endpoint-0"
         )
         _ = await ba.persistify()
-        best_solution = ba.search()
+        best_solution = ba.bees()
         assert best_solution.is_ok
         print("Best solution found:", best_solution.unwrap())
         
