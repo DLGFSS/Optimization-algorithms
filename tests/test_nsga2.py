@@ -18,7 +18,7 @@ async def test_local_nsga2():
             "verbose": True,}
     
     with AxoContextManager.local() as dcm:
-        nsga2: NSGA2 = NSGA2(params)
+        nsga2: NSGA2 = NSGA2(params, axo_endpoint_id="axo-endpoint-0")
         _ = await nsga2.persistify()
         result = nsga2.nsga()
         assert result.is_ok
