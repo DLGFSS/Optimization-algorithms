@@ -11,7 +11,7 @@ class TabuSearch1D(Axo):
         self.max_iter = max_iter
         self.tabu_size = tabu_size
     @axo_method
-    def tabu(self, *args, **kwargs):
+    def tabu(self,show_plot:bool = False, *args, **kwargs):
         current = self.x0
         best = current
         tabu = []
@@ -29,11 +29,11 @@ class TabuSearch1D(Axo):
                 tabu.pop(0)
             current = candidate
             history.append(self.f(best))
-
-        self.plot_convergence(history)
+        if show_plot: 
+            self.plot(history)
         return best, self.f(best)
 
-    def plot_convergence(self, history, *args, **kwargs):
+    def plot(self, history, *args, **kwargs):
         os.makedirs("img", exist_ok=True)
         plt.figure(figsize=(8, 4))
         plt.plot(history, marker='o', color='darkorange')

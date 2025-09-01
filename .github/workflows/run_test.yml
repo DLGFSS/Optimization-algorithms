@@ -35,6 +35,9 @@ jobs:
             sudo mkdir -p /sink
             sudo chown $USER:$USER /sink
             sudo chmod 777 /sink
+            sudo mkdir -p /axo
+            sudo chown $USER:$USER /axo
+            sudo chmod 777 /axo
             
       - name: Create network axo-net (external)
         run: |

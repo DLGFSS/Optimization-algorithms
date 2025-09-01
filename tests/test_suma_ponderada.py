@@ -14,6 +14,5 @@ async def test_suma_ponderada():
         print("Frente de Pareto generado con éxito:", res)
         assert res.is_ok
         solutions = res.unwrap()
-        sp.graficar_frente_pareto(solutions[0])
         
         

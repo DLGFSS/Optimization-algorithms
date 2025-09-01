@@ -9,3 +9,5 @@ htmlcov/
 *.lock
 dist/
 *.html
+**/reports
+.benchmarks/

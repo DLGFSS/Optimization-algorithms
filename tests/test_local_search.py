@@ -29,12 +29,4 @@ async def test_local_Local_search():
         print("Mejor solución encontrada:", mejor_solucion)
         
         # Gráfica de convergencia
-        plt.figure(figsize=(8, 4))
-        plt.plot(ls.fx, marker='o', color='teal')
-        plt.title("Convergencia de Búsqueda Local en $f(x) = x^2$")
-        plt.xlabel("Iteración")
-        plt.ylabel("f(x)")
-        plt.grid()
-        plt.tight_layout()
-        plt.show()
 

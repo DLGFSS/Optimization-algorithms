@@ -1,4 +1,3 @@
-import random
 import matplotlib.pyplot as plt
 import os
 from axo import Axo, axo_method
@@ -22,7 +21,7 @@ class LocalSearch(Axo):
     def conditional(self, x, **kwargs):
         return abs(x) == 0  
     @axo_method
-    def local(self, **kwargs):
+    def local(self,show_plot:bool = False, **kwargs):
         s = self.x
         self.trayectoria.append(s)
         self.fx.append(self.obj_function(s))
@@ -52,6 +51,15 @@ class LocalSearch(Axo):
 
         print("Mejor solución encontrada:", s)
         return s
+    def plot(self):
+        plt.figure(figsize=(8, 4))
+        plt.plot(self.fx, marker='o', color='teal')
+        plt.title("Convergencia de Búsqueda Local en $f(x) = x^2$")
+        plt.xlabel("Iteración")
+        plt.ylabel("f(x)")
+        plt.grid()
+        plt.tight_layout()
+        plt.show()
 
 #if __name__ == "__main__":
 #    busqueda = LocalSearch(x=50)

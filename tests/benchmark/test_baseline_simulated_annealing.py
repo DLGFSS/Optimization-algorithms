@@ -1,8 +1,8 @@
-from axo import Axo,axo_method
-import matplotlib.pyplot as plt
-class SimulatedAnnealing(Axo):
-    def __init__(self, solucion_inicial, temperatura, temperatura_minima, factor_enfriamiento,*args,**kwargs):
-        super().__init__(*args,**kwargs)
+import pytest
+import random
+
+class Simulated_Annealing():
+    def __init__(self, solucion_inicial, temperatura, temperatura_minima, factor_enfriamiento):
         self.solucion_inicial = solucion_inicial
         self.temperatura = temperatura
         self.temperatura_minima = temperatura_minima
@@ -11,15 +11,14 @@ class SimulatedAnnealing(Axo):
         self.historial_costes = []  
         
         
-    def generar_vecino(self, solucion_actual,**kwargs):
+    def generar_vecino(self, solucion_actual):
         import random
         return solucion_actual + random.uniform(-1, 1)
 
-    def evaluar_coste(self, solucion,**kwargs):
+    def evaluar_coste(self, solucion):
         return solucion**2
     
-    @axo_method
-    def simulated(self,**kwargs):
+    def simulated(self):
         import random
         import math
         self.iteracion = 0
@@ -39,14 +38,20 @@ class SimulatedAnnealing(Axo):
 
         return self.solucion_inicial, self.coste_actual, self.iteracion
 
-    def plot(self):
-        print(f"Solución encontrada: x = {self.solucion_inicial:.5f}")
-        print(f"Coste final: f(x) = {self.coste_actual:.5f}")
-        print(f"Iteraciones: {self.iteracion}")
 
-        plt.plot(self.historial_costes) # Aqui hay pedo
-        plt.title("Evolución del coste en Simulated Annealing")
-        plt.xlabel("Iteración")
-        plt.ylabel("Coste f(x)")
-        plt.grid(True)
-        plt.show()
+
+@pytest.mark.benchmark(group="baseline_simulated")
+def test_baseline_simulated_annealing(benchmark):
+    def run_sa():
+        sa = Simulated_Annealing(
+            solucion_inicial=random.uniform(-10, 10),
+            temperatura=100.0,
+            temperatura_minima=0.0001,
+            factor_enfriamiento=0.95
+        )
+        solucion, coste, iteraciones = sa.simulated()
+        return coste 
+
+    result = benchmark.pedantic(run_sa, iterations=10, rounds=100)
+    assert isinstance(result, float)  
+    

@@ -29,8 +29,7 @@ class CuckooSearch(Axo):
         return max(self.lower, min(x, self.upper))
     
     @axo_method
-    def cuckoo(self, **kwargs):
-        os.makedirs("img", exist_ok=True)
+    def cuckoo(self,show_plots:bool= False, **kwargs):
 
         nests = [random.uniform(self.lower, self.upper) for _ in range(self.n)]
         fitness = [self.f(x) for x in nests]
@@ -59,11 +58,12 @@ class CuckooSearch(Axo):
                 best = current_best
 
             fx_history.append(self.f(best))
-
-        self.plot_convergence(fx_history)
+        if show_plots: 
+            self.plot_convergence(fx_history)
         return best
 
     def plot_convergence(self,fx_history, **kwargs):
+        os.makedirs("./img", exist_ok=True)
         plt.figure(figsize=(8, 4))
         plt.plot(fx_history, marker='o', color='navy')
         plt.title("Convergencia de Cuckoo Search")

@@ -1,5 +1,5 @@
 import numpy as np
-from ..problems.problem import Problems
+from optikit.problems.problem import Problems
 from axo import Axo, axo_method
 
 
@@ -92,7 +92,7 @@ class NSGA2(Axo):
 
     #ejecucin del algortimo 
     @axo_method
-    def nsga(self , **kwargs):
+    def nsga(self ,show_plot:bool = False, **kwargs):
         population = self.create_initial_population()
         objectives = self.evaluate(population)
         
