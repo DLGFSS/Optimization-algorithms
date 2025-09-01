@@ -9,21 +9,19 @@ class DijkstraAlgorithm(Axo):
         self.graph = graph
 
     @axo_method
-    def dijkstra(self, source, target, **kwargs):
+    def dijkstra(self, source, target,show_plot:bool = False,**kwargs):
         # Devuelve el camino y el costo total desde source hasta target
         path, cost = nx.single_source_dijkstra(self.graph, source=source, target=target)
         return path, cost  # orden correcto: primero la lista del camino, luego el costo
 
-    def draw_path(self, path, algorithm_name="Dijkstra", **kwargs):
+    def plot(self, path, algorithm_name="Dijkstra", **kwargs):
         os.makedirs("img", exist_ok=True)
 
         pos = nx.spring_layout(self.graph, seed=42)
         plt.figure(figsize=(8, 5))
-
         nx.draw(self.graph, pos, with_labels=True, node_size=700, node_color='lightblue')
         edge_labels = nx.get_edge_attributes(self.graph, 'weight')
         nx.draw_networkx_edge_labels(self.graph, pos, edge_labels=edge_labels)
-
         path_edges = list(zip(path, path[1:]))
         nx.draw_networkx_edges(self.graph, pos, edgelist=path_edges, edge_color='crimson', width=3)
 

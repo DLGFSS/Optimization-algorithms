@@ -1,8 +1,6 @@
 import numpy as np
 from scipy.optimize import minimize
 import matplotlib.pyplot as plt
-import time
-import csv
 from axo import Axo, axo_method
 
 
@@ -26,7 +24,7 @@ class SumaPonderada(Axo):
         return result.x, result.fun
 
     @axo_method
-    def suma(self, pasos=50, *args, **kwargs):
+    def suma(self, show_plot:bool = False,pasos=50, *args, **kwargs):
         solutions = []
         weights_list = []
 
@@ -40,7 +38,7 @@ class SumaPonderada(Axo):
 
         return np.array(solutions), weights_list
 
-    def graficar_frente_pareto(self, soluciones, *args, **kwargs):
+    def plot(self, soluciones, *args, **kwargs):
         plt.figure(figsize=(8, 6))
         plt.plot(soluciones[:, 0], soluciones[:, 1], 'bo-', label='Frente de Pareto (estimado)')
         plt.xlabel('f1(x)')

@@ -1,6 +1,7 @@
-from .individual import Individual
-from .utils import init_weights, get_neighbors, scalarizing_chebyshev
+from optikit.algorithms.individual import Individual
+from optikit.algorithms.utils import init_weights, get_neighbors, scalarizing_chebyshev
 import random
+import matplotlib.pyplot as plt
 from axo import Axo, axo_method
 
 class MOEAD(Axo):
@@ -22,7 +23,7 @@ class MOEAD(Axo):
         self.z = [min([ind.f[i] for ind in self.population]) for i in range(2)]
 
     @axo_method
-    def moea(self,**kwargs):
+    def moea(self,show_plot:bool = False,**kwargs):
         for gen in range(self.n_gen):
             for i in range(self.n_sub):
                 P = self.neighbors[i]
@@ -47,3 +48,13 @@ class MOEAD(Axo):
 
     def get_pareto_front(self, **kwargs):
         return [ind.f for ind in self.population]
+    def plot(self):
+        pareto = self.get_pareto_front()
+        f1_vals = [f[0] for f in pareto]
+        f2_vals = [f[1] for f in pareto]
+
+        plt.scatter(f1_vals, f2_vals ,s=10)
+        plt.xlabel("f1")
+        plt.ylabel("f2")
+        plt.title("Pareto Front")
+        plt.savefig("pareto_front.png", dpi=300)

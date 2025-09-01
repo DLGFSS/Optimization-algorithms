@@ -36,8 +36,7 @@ class ScatterSearch(Axo):
     def combine(self, s1, s2, *args, **kwargs):
         return (s1 + s2) / 2
     @axo_method
-    def scatter(self, *args, **kwargs):
-        os.makedirs("img", exist_ok=True)
+    def scatter(self,show_plot:bool= False, *args, **kwargs):
 
         pop = self.initialize_population()
         pop = self.improve_population(pop)
@@ -60,11 +59,13 @@ class ScatterSearch(Axo):
             best_fx = self.f(min(refset, key=self.f))
             fx_history.append(best_fx)
 
-        self._plot_convergence(fx_history)
+        if show_plot: 
+            self.plot(fx_history)
 
         return min(refset, key=self.f)
 
-    def _plot_convergence(self, fx_history, *args, **kwargs):
+    def plot(self, fx_history, *args, **kwargs):
+        os.makedirs("./img", exist_ok=True)
         plt.figure(figsize=(8, 4))
         plt.plot(fx_history, marker='o', color='purple')
         plt.title("Convergencia del Scatter Search")
@@ -74,18 +75,3 @@ class ScatterSearch(Axo):
         plt.tight_layout()
         plt.savefig("img/scatter_convergencia.png")
         plt.show()
-
-#if __name__ == "__main__":
-#    def objective(x):
-#        return x**2
-
-#    params = {
-#        "pop_size": 20,
-#        "refset_size": 5,
-#        "max_iter": 50
-#   }
-
-#    ss = ScatterSearch(objective, lower=-100, upper=100, params=params)
-#    mejor_x = ss.search()
-#    print("Mejor solución encontrada:", mejor_x)
-#    print("Valor de f(x):", objective(mejor_x))

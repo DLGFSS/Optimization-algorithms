@@ -21,7 +21,7 @@ class Simulated_Annealing():
     def simulated(self):
         import random
         import math
-        iteracion = 0
+        self.iteracion = 0
         while self.temperatura > self.temperatura_minima:
             nueva_solucion = self.generar_vecino(self.solucion_inicial)
             nuevo_coste = self.evaluar_coste(nueva_solucion)
@@ -34,9 +34,9 @@ class Simulated_Annealing():
             self.historial_costes.append(self.coste_actual)
 
             self.temperatura *= self.factor_enfriamiento
-            iteracion += 1
+            self.iteracion += 1
 
-        return self.solucion_inicial, self.coste_actual, iteracion
+        return self.solucion_inicial, self.coste_actual, self.iteracion
 
 
 

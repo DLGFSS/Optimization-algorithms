@@ -1,5 +1,5 @@
 from axo import Axo,axo_method
-
+import matplotlib.pyplot as plt
 class SimulatedAnnealing(Axo):
     def __init__(self, solucion_inicial, temperatura, temperatura_minima, factor_enfriamiento,*args,**kwargs):
         super().__init__(*args,**kwargs)
@@ -22,7 +22,7 @@ class SimulatedAnnealing(Axo):
     def simulated(self,**kwargs):
         import random
         import math
-        iteracion = 0
+        self.iteracion = 0
         while self.temperatura > self.temperatura_minima:
             nueva_solucion = self.generar_vecino(self.solucion_inicial)
             nuevo_coste = self.evaluar_coste(nueva_solucion)
@@ -35,31 +35,18 @@ class SimulatedAnnealing(Axo):
             self.historial_costes.append(self.coste_actual)
 
             self.temperatura *= self.factor_enfriamiento
-            iteracion += 1
+            self.iteracion += 1
 
-        return self.solucion_inicial, self.coste_actual, iteracion
+        return self.solucion_inicial, self.coste_actual, self.iteracion
 
+    def plot(self):
+        print(f"Solución encontrada: x = {self.solucion_inicial:.5f}")
+        print(f"Coste final: f(x) = {self.coste_actual:.5f}")
+        print(f"Iteraciones: {self.iteracion}")
 
-# import matplotlib.pyplot as plt
-
-
-# if __name__ == "__main__":
-#     sa = SimulatedAnnealing(
-#         solucion_inicial = random.uniform(-10, 10),
-#         temperatura_inicial = 100.0,
-#         temperatura_minima = 0.001,
-#         factor_enfriamiento = 0.95
-#     )
-
-#     solucion, coste, iteraciones = sa.enfriamiento()
-
-#     print(f"Solución encontrada: x = {solucion:.5f}")
-#     print(f"Coste final: f(x) = {coste:.5f}")
-#     print(f"Iteraciones: {iteraciones}")
-
-#     plt.plot(sa.historial_costes)
-#     plt.title("Evolución del coste en Simulated Annealing")
-#     plt.xlabel("Iteración")
-#     plt.ylabel("Coste f(x)")
-#     plt.grid(True)
-#     plt.show()
+        plt.plot(self.historial_costes) # Aqui hay pedo
+        plt.title("Evolución del coste en Simulated Annealing")
+        plt.xlabel("Iteración")
+        plt.ylabel("Coste f(x)")
+        plt.grid(True)
+        plt.show()

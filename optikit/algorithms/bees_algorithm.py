@@ -26,8 +26,7 @@ class BeesAlgorithm(Axo):
         neighbor = x + delta
         return max(self.lower, min(neighbor, self.upper))
     @axo_method
-    def bees(self, **kwargs):
-        os.makedirs("img", exist_ok=True)
+    def bees(self,show_plot:bool = False, **kwargs):
 
         population = [self._random_solution() for _ in range(self.n)]
         best_solution = min(population, key=self.f)
@@ -74,15 +73,16 @@ class BeesAlgorithm(Axo):
             history_elite.append(elite_sites)
             history_sites.append(selected_sites)
             history_scouts.append(scouts)
+            if show_plot: 
+                self._plot_iteration(it, elite_sites, selected_sites, scouts)
 
-            self._plot_iteration(it, elite_sites, selected_sites, scouts)
-
-        
-        self._plot_convergence(history_fx)
+        if show_plot:
+            self._plot_convergence(history_fx)
 
         return best_solution
 
     def _plot_iteration(self, iter_num, elites, sites, scouts, **kwargs):
+        os.makedirs("./img", exist_ok=True)
         x_curve = np.linspace(self.lower, self.upper, 400)
         y_curve = x_curve ** 2
 
@@ -101,6 +101,7 @@ class BeesAlgorithm(Axo):
         plt.close()
 
     def _plot_convergence(self, fx_history):
+        os.makedirs("./img", exist_ok=True)
         plt.figure(figsize=(8, 4))
         plt.plot(fx_history, marker='o', color='green')
         plt.title("Convergencia del Bees Algorithm")

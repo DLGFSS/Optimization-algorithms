@@ -208,7 +208,7 @@ async def suma_ponderada():
         print("Frente de Pareto generado con éxito:", res)
         assert res.is_ok
         solutions = res.unwrap()
-        sp.graficar_frente_pareto(solutions[0])
+        sp.plot(solutions[0])
         
 async def tabu_search():
     

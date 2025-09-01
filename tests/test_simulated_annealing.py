@@ -33,16 +33,6 @@ async def test_simulated_annealing(dem:DistributedEndpointManager):
         assert res.is_ok
         solucion, coste, iteraciones  = res.unwrap()
         
-        print(f"Solución encontrada: x = {solucion:.5f}")
-        print(f"Coste final: f(x) = {coste:.5f}")
-        print(f"Iteraciones: {iteraciones}")
-
-        plt.plot(sa.historial_costes) # Aqui hay pedo
-        plt.title("Evolución del coste en Simulated Annealing")
-        plt.xlabel("Iteración")
-        plt.ylabel("Coste f(x)")
-        plt.grid(True)
-        plt.show()
 
 
 @pytest.mark.asyncio

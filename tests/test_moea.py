@@ -32,12 +32,4 @@ async def test_local_moea():
         result = moead.moea()
         assert result.is_ok
         pareto = moead.get_pareto_front()
-        f1_vals = [f[0] for f in pareto]
-        f2_vals = [f[1] for f in pareto]
-
-        plt.scatter(f1_vals, f2_vals ,s=10)
-        plt.xlabel("f1")
-        plt.ylabel("f2")
-        plt.title("Pareto Front")
-        plt.savefig("pareto_front.png", dpi=300)
         

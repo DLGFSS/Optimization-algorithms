@@ -1,7 +1,6 @@
 import pytest
 from optikit.algorithms.dijkstra import DijkstraAlgorithm
 from axo.contextmanager import AxoContextManager
-import matplotlib.pyplot as plt
 import networkx as nx
 
 edges = [
@@ -26,5 +25,5 @@ async def test_local_Local_search():
         assert res.is_ok
         cost, path = res.unwrap()
         print("Dijkstra:", path, "Coste:", cost)
-        ad.draw_path(path)
+        # ad.plot(path)
        
